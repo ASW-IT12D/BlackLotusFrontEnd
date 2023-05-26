@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { changeUser, getToken } from '../Token';
 
 function SingleIssue() {
   const [subject, setSubject] = useState('');
@@ -55,8 +56,8 @@ function SingleIssue() {
     setSeverity(event.target.value);
   };
 
-  const token = "21bcd501e8c7eed561c6990c8e6fc2f6af84a0dd"
-  
+  changeUser()
+
   const handleButtonClick = () => {
     const data = {
       subject: subject,
@@ -73,7 +74,7 @@ function SingleIssue() {
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('X_CSRFTOKEN'),
-            'Authorization': 'Token ' + token
+            'Authorization': 'Token ' + getToken()
         },
         body: JSON.stringify(data),
     });
