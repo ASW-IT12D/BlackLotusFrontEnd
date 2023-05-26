@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { changeUser, getToken } from '../Token';
 
 function MainIssues() {
 
-  const token = "21bcd501e8c7eed561c6990c8e6fc2f6af84a0dd"
   const [issues, setIssues] = useState([])
+  changeUser()
 
     useEffect(()=>{
         fetch("http://127.0.0.1:8000/issues/", {
         'method':'GET',
-        headers: {'Content-Type':'application/json','Authorization': 'Token ' + token }
+        headers: {'Content-Type':'application/json','Authorization': 'Token ' + getToken() }
         }).then(resp => resp.json()).then(resp => setIssues(resp))
     }, [])
 
