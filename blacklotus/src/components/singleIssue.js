@@ -76,14 +76,6 @@ function SingleIssue() {
             'Authorization': 'Token ' + token
         },
         body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(result => {
-        // Manejar la respuesta de la solicitud POST
-        console.log(result);
-    })
-    .catch(error => {
-        // Manejar los errores de la solicitud POST
     });
 
   };
