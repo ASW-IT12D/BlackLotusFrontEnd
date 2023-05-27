@@ -4,7 +4,7 @@ import { changeUser, getToken } from '../Token';
 function MainIssues() {
 
   const [issues, setIssues] = useState([])
-  changeUser()
+  changeUser(0)
 
     useEffect(()=>{
         fetch("http://127.0.0.1:8000/issues/", {
