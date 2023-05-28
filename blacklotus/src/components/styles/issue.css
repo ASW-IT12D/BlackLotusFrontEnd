@@ -1,0 +1,99 @@
+.save-button {
+    width: 15px; /* Ajusta el tamaño según tus necesidades */
+    height: 15px;
+    background-image: url('../../../public/save.png'); /* Ruta a la imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-color: transparent;
+    border: none;
+     fill:#70728f;
+    margin-left:.5rem;
+    display:inline;
+    transition:fill .2s linear
+    /* Otros estilos según tus necesidades */
+  }
+
+  .cross-button {
+    width: 15px; /* Ajusta el tamaño según tus necesidades */
+    height: 15px;
+    background-image: url('../../../public/cross.png'); /* Ruta a la imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-color: transparent;
+    border: none;
+    fill:#70728f;
+    margin-left:.5rem;
+    display:inline;
+    transition:fill .2s linear
+    /* Otros estilos según tus necesidades */
+  }
+
+  .issue-page {
+    margin-left:5rem;
+    margin-top: 2rem;
+   }
+
+.edit-issue-input {
+    background:#fff;
+    flex:1;
+    width: 698px; /* Ajusta el tamaño según tus necesidades */
+    height: 35.6px;
+    margin-top: .5rem;
+    display:inline;
+}
+
+.issue-subject {
+    color:#2e3440;
+    flex-grow:1;
+    font-size: 46px;
+    word-break:break-word
+}
+
+
+
+
+.id-issue { 
+    font-family:Ubuntu-Medium,Arial,Helvetica,sans-serif;
+    font-weight:500;
+    font-size: 40px;
+    color:#008aa8;
+    margin-right:.5rem
+}
+
+.detail-title-text {
+    align-items:baseline;
+    color:#2e3440;
+    display:flex;
+    line-height:2rem;
+    margin:0
+   }
+
+.activity-pfp img {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+  
+.subheader {
+display: flex;
+align-items: center;
+justify-content: space-between; /* Add this line to separate activity text and date */
+}
+
+.activity-text h4 {
+color:#008aa8;
+font-size: 15px;
+flex-grow: 1; /* Add this line to allow the activity text to expand */
+}
+
+.activity-pfp {
+    color: #888;
+    font-size: 20px;
+    flex-grow: 1; /* Add this line to allow the activity text to expand */
+    padding: 20px;
+}
+
+.date{
+    font-size: 15px;
+}
+

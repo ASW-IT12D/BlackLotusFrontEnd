@@ -1,12 +1,12 @@
 import './App.css';
 import Home from './components/mainIssues';
-import Issue from './components/singleIssue';
+import Issue from './components/editIssue';
 import Layout from './components/Layout';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Layout/>
       <BrowserRouter>
         <Routes>

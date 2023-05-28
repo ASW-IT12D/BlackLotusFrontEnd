@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getToken } from '../Token';
+import { getToken, getCookie } from '../Token';
 import { useParams } from 'react-router-dom';
-import './theme-taiga.css';
 
 
 function SingleIssue() {
@@ -45,26 +44,7 @@ function SingleIssue() {
     var [severity, setSeverity] = useState('Whishlist');
   
 
-  function getCookie(name) {
-    let cookieValue = null;
 
-
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-
-                break;
-            }
-        }
-    }
-
-    return cookieValue;
-}
 
 
   const handleSubjectChange = (event) => {
@@ -120,7 +100,6 @@ function SingleIssue() {
       <br></br>
       <label>Description: <input type="text" value={description} onChange={handleDescriptionChange} /></label>
       <br></br>
-      <sidebar class="sidebar ticket-data">
       <label>Status:
         <select value={status} onChange={handleStatusChange}>
           <option value="New">New</option>
@@ -158,7 +137,6 @@ function SingleIssue() {
           <option value="High">High</option>
         </select>
       </label>
-      </sidebar>
       <br></br><button onClick={handleButtonClick}>Submit</button>
     </div>
   );
