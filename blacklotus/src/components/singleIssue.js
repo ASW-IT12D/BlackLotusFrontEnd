@@ -1,59 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { changeUser, getToken} from '../Token';
 
 function SingleIssue() {
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState([]);
+  const [profiles, setProfiles] = useState([]);
   const idIssue = 13;
-  function getCookie(name) {
-    let cookieValue = null;
+  changeUser();
 
-    console.log(document)
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/comment/' + idIssue + '/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + getToken()
+      }
+    })
+    .then(resp => resp.json())
+    .then(resp => setComment(resp));
+  }, []);
 
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-
-                break;
-            }
-        }
-    }
-
-    return cookieValue;
-}
-  
-
-  const handleComment = (event) => {
-    setComment(event.target.value);
-  };
-
-  changeUser()
-
-  const handleButtonClick = () => {
-    const data = {
-      comment: comment,
-    };
-    
-    fetch('http://127.0.0.1:8000/comment/'+idIssue+'/', {
-        method: 'POST',
+  useEffect(() => {
+    comment.forEach(comment => {
+      fetch('http://127.0.0.1:8000/profile/' + comment.creator + '/', {
+        method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': getCookie('X_CSRFTOKEN'),
-            'Authorization': 'Token '+ getToken()
-        },
-        body: JSON.stringify(data),
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + getToken()
+        }
+      })
+      .then(resp => resp.json())
+      .then(resp => setProfiles(prevProfiles => [...prevProfiles, resp]));
     });
-
-  };
+  }, [comment]);
 
   return (
     <div>
-      <label>Comment here: <input type="text" value={comment} onChange={handleComment} /></label>
-      <br></br><button onClick={handleButtonClick}>Comment</button>
+      {comment.map((comment, index) => (
+        <h2 key={index}>
+          {profiles[index] && profiles[index].image} {comment.creator}, {comment.message}, {comment.creationDate}
+        </h2>
+      ))}
     </div>
   );
 }
