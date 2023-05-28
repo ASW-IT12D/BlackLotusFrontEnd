@@ -1,15 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getToken } from '../Token';
+import { useParams } from 'react-router-dom';
+import './theme-taiga.css';
+
 
 function SingleIssue() {
-  const [subject, setSubject] = useState('Popole');
-  const [description, setDescription] = useState('');
-  const [priority, setPriority] = useState('Low');
-  const [status, setStatus] = useState('New');
-  const [type, setType] = useState('Bug');
-  const [severity, setSeverity] = useState('Whishlist');
+
+  const [issue, setIssue] = useState([])
+
+  const { id } = useParams();
+
+  const URL = 'http://127.0.0.1:8000/issue/'+id+'/';
   
-  const idIssue = 17;
+  useEffect(() => {
+    const fetchIssue = async () => {
+      try {
+        const response = await fetch(URL, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token ' + getToken()
+          }
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setIssue(data);
+        } else {
+          throw new Error('Failed to fetch profile');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchIssue();
+  }, []);
+
+
+    var [subject, setSubject] = useState('');
+    var [description, setDescription] = useState('');
+    var [priority, setPriority] = useState('Low');
+    var [status, setStatus] = useState('New');
+    var [type, setType] = useState('Bug');
+    var [severity, setSeverity] = useState('Whishlist');
+  
 
   function getCookie(name) {
     let cookieValue = null;
@@ -68,7 +102,7 @@ function SingleIssue() {
     };
     
 
-    fetch('http://127.0.0.1:8000/issue/'+idIssue+'/', {
+    fetch('http://127.0.0.1:8000/issue/'+id+'/', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -86,6 +120,7 @@ function SingleIssue() {
       <br></br>
       <label>Description: <input type="text" value={description} onChange={handleDescriptionChange} /></label>
       <br></br>
+      <sidebar class="sidebar ticket-data">
       <label>Status:
         <select value={status} onChange={handleStatusChange}>
           <option value="New">New</option>
@@ -123,6 +158,7 @@ function SingleIssue() {
           <option value="High">High</option>
         </select>
       </label>
+      </sidebar>
       <br></br><button onClick={handleButtonClick}>Submit</button>
     </div>
   );

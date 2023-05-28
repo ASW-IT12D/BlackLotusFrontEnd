@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getToken, changeUser } from '../Token';
+import {Link} from 'react-router-dom';
 
 function MainIssues() {
 
@@ -17,7 +18,9 @@ function MainIssues() {
   return (
     <div>
         {issues.map(issue => {
-            return <h2>{issue.subject}</h2>
+            return  <li class="nav-item active">
+                      <Link to={"issue/"+issue.id} className="nav-link"> {issue.id} {issue.subject} </Link>
+                    </li>
             }
         )}
     </div>
