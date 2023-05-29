@@ -9,6 +9,12 @@ function SingleIssue() {
   const [type, setType] = useState('Bug');
   const [severity, setSeverity] = useState('Whishlist');
 
+  //Elementos Deadline
+  const [deadline, setDeadline] = useState(true);
+  const [deadline_motive, setDeadlineMotive] = useState('');
+  const [deadline_date, setDeadlineDate] = useState('27-06-2032');
+  const idIssue = 17;
+
   function getCookie(name) {
     let cookieValue = null;
 
@@ -56,9 +62,20 @@ function SingleIssue() {
     setSeverity(event.target.value);
   };
 
+
+  const handleDeadlineMotiveChange = (event) => {
+    setDeadlineMotive(event.target.value);
+  };
+
+  const handleDeadlineDateChange = (event) => {
+    setDeadlineDate(event.target.value);
+  };
+
+
   changeUser()
 
   const handleButtonClick = () => {
+    /*
     const data = {
       subject: subject,
       description: description,
@@ -67,10 +84,17 @@ function SingleIssue() {
       severity: severity,
       priority: priority
     };
-    
+    */
 
-    fetch('http://127.0.0.1:8000/issues/', {
-        method: 'POST',
+    setDeadline(true);
+    const data = {
+      deadline_date: deadline_date,
+      deadline_motive: deadline_motive,
+      deadline: deadline
+    };
+
+    fetch('http://127.0.0.1:8000/issue/'+idIssue+'/', {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('X_CSRFTOKEN'),
@@ -79,10 +103,16 @@ function SingleIssue() {
         body: JSON.stringify(data),
     });
 
+
   };
 
   return (
     <div>
+            <div>
+              <label>Date: <input type="text" value={deadline_date} onChange={handleDeadlineDateChange} /></label>
+              <label>Motive: <input type="text" value={deadline_motive} onChange={handleDeadlineMotiveChange} /></label>
+              <br></br><button onClick={handleButtonClick}>Add Deadline</button>
+            </div>
       <label>Subject: <input type="text" value={subject} onChange={handleSubjectChange} /></label>
       <br></br>
       <label>Description: <input type="text" value={description} onChange={handleDescriptionChange} /></label>
