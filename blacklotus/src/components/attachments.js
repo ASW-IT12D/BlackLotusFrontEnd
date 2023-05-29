@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { getToken, getCookie } from '../Token';
 import './styles/issue.css'
 import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
+import { useParams } from 'react-router-dom';
 
 
 function Attachments() {
 const [attachments, setAttachments] = useState(null)
 
-const URL = 'http://127.0.0.1:8000/issue/12/attachment';
+const { id } = useParams();
 
-useEffect(() => {
-    const fetchIssue = async () => {
+const URL = 'http://127.0.0.1:8000/issue/'+id+'/attachment';
+
+const fetchIssue = async () => {
     try {
         const response = await fetch(URL, {
         method: 'GET',
@@ -30,6 +32,7 @@ useEffect(() => {
     }
 };
 
+useEffect(() => {
 fetchIssue();
 }, []);
 
@@ -50,12 +53,46 @@ const deleteAttachmentButton = (name) => {
     setAttachments(updatedAttachments);
 };
 
+
+const addAttachment = async (formData) => {
+    const response = await fetch('http://127.0.0.1:8000/issue/'+id+'/attachment', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('X_CSRFTOKEN'),
+            'Authorization': 'Token ' + getToken()
+        },
+        body: formData
+    });
+    if (response.ok) {
+        const data = await response.json();
+
+        fetchIssue();
+      } 
+  };
+
+const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+
+    event.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('upfile', selectedFile);
+    
+    addAttachment(formData);
+}
+    
+
 return (
     <div className='issue-page'>
         <div className='attachments-header'>
             <h3 className='attachments-title'>
                 {attachments && attachments.length} Attachments
             </h3>
+            <label className="file-label">
+                <input type="file" name="upfile" className="hidden-file-input" onChange={handleFileChange} />
+                <button className="disable-button"></button>
+            </label>
         </div>
         <div className='attachment-list'>    
             {attachments && attachments.map(attachment => {

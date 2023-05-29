@@ -190,3 +190,44 @@ flex-basis: 50%;
     transition:fill .2s linear
 }
 
+.add-button-atachment {
+    width: 25px; /* Ajusta el tamaño según tus necesidades */
+    height: 25px;
+    background-image: url('../../../public/add.png'); /* Ruta a la imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-color: #6cd1f9;
+    border: none;
+    margin-right:30px;
+    display:inline;
+    pointer-events: none;
+    transition:fill .2s linear
+}
+
+.file-label {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .hidden-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .disable-button {
+    width: 25px;
+    height: 25px;
+    background-image: url('../../../public/add.png');
+    background-size: cover;
+    background-color: #6cd1f9;
+    border: none;
+    margin-right: 30px;
+    display: inline;
+    transition: fill .2s linear;
+  }
+  
+
