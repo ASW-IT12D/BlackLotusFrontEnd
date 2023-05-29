@@ -1,0 +1,66 @@
+nav {
+    background: #f0f0f0;
+  }
+  
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+li:hover {
+    background: #ddd;
+}
+
+.bar {
+    position: fixed;
+    top: 7rem;
+    left: 50rem;
+    width: 50rem;
+}
+
+.profile-activity-pfp img {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+
+
+.profile-activity-pfp {
+    margin-right: 20px;
+}
+
+
+.profile-activity-date {
+    text-align: right;
+  }
+  
+.profile-activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 20px;
+}
+
+.profile-activity-text h4 {
+    color: #888;
+    font-size: 20px;
+    flex-grow: 1;
+    
+    
+}
+.profile-activity-text {
+    text-align: left;
+}
+.profile-activity-date h5 {
+    font-size: 15px;
+    margin-left: 20px; 
+}

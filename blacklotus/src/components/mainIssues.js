@@ -12,6 +12,7 @@ function MainIssues() {
         headers: {'Content-Type':'application/json','Authorization': 'Token ' + getToken() }
         }).then(resp => resp.json()).then(resp => setIssues(resp))
     }, [])
+    console.log(issues)
 
   return (
     <div>
