@@ -4,8 +4,9 @@ import { changeUser, getToken} from '../Token';
 function SingleIssue() {
   const [comment, setComment] = useState([]);
   const [profiles, setProfiles] = useState([]);
+  const username = "pbc";
   const idIssue = 13;
-  changeUser();
+  changeUser(0);
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/comment/' + idIssue + '/', {
@@ -21,7 +22,7 @@ function SingleIssue() {
 
   useEffect(() => {
     comment.forEach(comment => {
-      fetch('http://127.0.0.1:8000/profile/' + comment.creator + '/', {
+      fetch('http://127.0.0.1:8000/profile/' + username + '/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
