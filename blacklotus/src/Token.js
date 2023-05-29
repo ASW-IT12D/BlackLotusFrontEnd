@@ -28,7 +28,7 @@ export function getToken()
 
 export function changeUser(name)
 {
-    if (name === 0) localStorage.setItem('token', "21bcd501e8c7eed561c6990c8e6fc2f6af84a0dd");
+    if (name === 0) localStorage.setItem('token', "2aaa3296739b1e4b22b9d905da2c04eeb17423ab");
 
     if (name === 1) localStorage.setItem('token', "user2");
 
