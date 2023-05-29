@@ -9,6 +9,9 @@ function SingleIssue() {
   const [type, setType] = useState('Bug');
   const [severity, setSeverity] = useState('Whishlist');
 
+  const [deadline, setDeadline] = useState(false);
+  const idIssue = 17;
+
   function getCookie(name) {
     let cookieValue = null;
 
@@ -59,6 +62,7 @@ function SingleIssue() {
   changeUser()
 
   const handleButtonClick = () => {
+    /*
     const data = {
       subject: subject,
       description: description,
@@ -67,10 +71,15 @@ function SingleIssue() {
       severity: severity,
       priority: priority
     };
-    
+    */
 
-    fetch('http://127.0.0.1:8000/issues/', {
-        method: 'POST',
+    setDeadline(false);
+    const data = {
+      deadline: deadline
+    };
+
+    fetch('http://127.0.0.1:8000/issue/'+idIssue+'/', {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('X_CSRFTOKEN'),
@@ -83,6 +92,9 @@ function SingleIssue() {
 
   return (
     <div>
+      <div>
+          <br></br><button onClick={handleButtonClick}>DelDeadline</button>
+      </div>
       <label>Subject: <input type="text" value={subject} onChange={handleSubjectChange} /></label>
       <br></br>
       <label>Description: <input type="text" value={description} onChange={handleDescriptionChange} /></label>
