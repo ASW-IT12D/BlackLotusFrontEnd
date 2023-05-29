@@ -26,13 +26,22 @@
     /* Otros estilos según tus necesidades */
   }
 
+  .subject-id-wrapper {
+    margin-left:1rem;
+  }
+
   .issue-page {
     margin-left:5rem;
     margin-top: 2rem;
-   }
+    /* width: 850px; Ajusta el tamaño según tus necesidades */
+    height: 150px;
+    display: flex;
+    flex-direction: column; /* Los hijos se apilan verticalmente */
+}
 
 .edit-issue-input {
     background:#fff;
+    margin-left:1rem;
     flex:1;
     width: 698px; /* Ajusta el tamaño según tus necesidades */
     height: 35.6px;
@@ -46,9 +55,6 @@
     font-size: 46px;
     word-break:break-word
 }
-
-
-
 
 .id-issue { 
     font-family:Ubuntu-Medium,Arial,Helvetica,sans-serif;
@@ -64,36 +70,123 @@
     display:flex;
     line-height:2rem;
     margin:0
-   }
-
-.activity-pfp img {
-    width: 55px;
-    height: 55px;
-    overflow: hidden;
-    border-radius: 50%;
 }
 
-  
-.subheader {
-display: flex;
-align-items: center;
-justify-content: space-between; /* Add this line to separate activity text and date */
+.activity-pfp img {
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .activity-text h4 {
 color:#008aa8;
 font-size: 15px;
-flex-grow: 1; /* Add this line to allow the activity text to expand */
+flex-basis: 50%;
 }
 
 .activity-pfp {
     color: #888;
     font-size: 20px;
-    flex-grow: 1; /* Add this line to allow the activity text to expand */
-    padding: 20px;
+    padding: 10px;
+    flex-grow: 1;
 }
 
-.date{
+.subheader {
+    margin-left: auto;
+    display: flex;
+    padding-top: 25px;
+}
+
+.date {
     font-size: 15px;
+    flex-basis: 50%;
+}
+
+.issue-description{
+    color:#2e3440;
+    flex-grow:1;
+    font-size: 23px;
+    word-break:break-word
+}
+
+.description-id-wrapper{
+    margin-left:1rem;
+    width: 650px; /* Ajusta el tamaño según tus necesidades */
+    height: 50px;
+}
+
+.edit-issue-description {
+    background:#fff;
+    margin-left:1rem;
+    flex:1;
+    width: 650px; /* Ajusta el tamaño según tus necesidades */
+    height: 100px;
+    margin-top: .5rem;
+    display:inline;
+    vertical-align: top;
+}
+
+/*-------------------------------------------------*/
+.attachments-header {
+    align-content:center;
+    align-items:center;
+    background:#eceff4;
+    display:flex;
+    justify-content:space-between;
+    min-height:36px
+}
+
+.attachments-title{
+    font-family:Ubuntu-Medium,Arial,Helvetica,sans-serif;
+    color:#4c566a;
+    line-height:36px;
+    padding:0 1rem;
+    font-size: 20px;
+}
+   .attachments-header .options {
+    display:flex
+   }
+   .attachments-header label {
+    cursor:pointer;
+    margin-left:.25rem
+   }
+   .attachments-header label.add-attachment-button {
+    border:0;
+    display:inline-block;
+    padding:.5rem
+   }
+  
+.single-attachment h5{
+    align-items:center;
+    position: relative;
+    flex-grow: 1;
+    margin-left:10px;
+}
+
+.single-attachment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attachment-list {
+    justify-content:space-between;
+    border-bottom:1px solid #f9f9fb;
+    min-height:2px;
+    margin-top: 7px;
+}
+
+.delete-button-atachment {
+    width: 25px; /* Ajusta el tamaño según tus necesidades */
+    height: 25px;
+    background-image: url('../../../public/papelera.png'); /* Ruta a la imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    background-color: transparent;
+    border: none;
+    fill:#70728f;
+    margin-right:30px;
+    display:inline;
+    transition:fill .2s linear
 }
 
