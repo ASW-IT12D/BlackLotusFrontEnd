@@ -1,7 +1,8 @@
 import './App.css';
 import Home from './components/mainIssues';
-import Issue from './components/editIssue';
+import Issue from './components/singleIssue';
 import Layout from './components/Layout';
+import Crea from './components/creaIssueFolder/creaIssue'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path="/issue/:id" element={<Issue/>} />
+          <Route path="/createIssue" element={<Crea/>} />
         </Routes>
       </BrowserRouter>
     </div>

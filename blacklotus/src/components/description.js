@@ -79,11 +79,11 @@ return (
     <div className='issue-page' style={{ display: 'inline-block' }}>
         {isEditingDes ? (
             <div>
-                <input className="edit-issue-description"
-                    type="text"
+                <textarea
+                    className="edit-issue-description"
                     value={description}
                     onChange={handleInputChangeDes}
-            />
+                    />
                 <button className="save-button" onClick={handleButtonClick}></button>
                 <button className="cross-button" onClick={handleButtonCancelDesClick}></button>
             </div>

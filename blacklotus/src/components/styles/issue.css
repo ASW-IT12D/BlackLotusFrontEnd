@@ -47,6 +47,8 @@
     height: 35.6px;
     margin-top: .5rem;
     display:inline;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .issue-subject {
@@ -229,5 +231,70 @@ flex-basis: 50%;
     display: inline;
     transition: fill .2s linear;
   }
+
+.ticket-title {
+    font-size:1.4rem;
+    font-family:Ubuntu-Regular,Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    vertical-align:sub;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+  }
+
+  
+.select-status {
+    flex-grow: 0;
+    color: #fff;
+    border: none;
+    outline: none;
+  }
+
+  .select-type {
+    color: #000;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    background-image: none;
+    padding-right: 50px;
+  }
+
+.circle-type {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  
+.typeOption{
+    padding-top: 25px;
+}
+
+.severityOption{
+    padding-top: 2px;
+}
+
+.priorityOption{
+padding-top: 2px;
+}
+
+.labelTypes
+{
+    font-size: 12px;
+    color:#70728f;
+    text-transform:lowercase;
+}
+
+.container-label-color {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 100px;
+}
   
 

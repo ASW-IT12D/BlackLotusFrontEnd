@@ -14,6 +14,9 @@ function Layout() {
                     <li class="nav-item active">
                         <a class="nav-link" href="/issue">Profile</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/createIssue">Crear Issue</a>
+                    </li>
                 </ul>
             </div>
         </nav>
