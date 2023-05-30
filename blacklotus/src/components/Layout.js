@@ -13,7 +13,7 @@ function Layout() {
                         <Link to='/'  className="nav-link"> Home </Link>
                     </li>
                     <li class="nav-item active">
-                        <Link to='/create' className="nav-link"> Creat Issue </Link>
+                        <Link to='/create' className="nav-link"> Create Issue </Link>
                     </li>
                     <li class="nav-item active">
                         <Link to='/profile'  className="nav-link"> Profile </Link>

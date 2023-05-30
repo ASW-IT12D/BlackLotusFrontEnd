@@ -26,8 +26,8 @@ li:hover {
 }
 
 .profile-activity-pfp img {
-    width: 64px;
-    height: 64px;
+    width: 32px;
+    height: 32px;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -35,32 +35,25 @@ li:hover {
 
 
 .profile-activity-pfp {
-    margin-right: 20px;
+    margin-right: 1rem;
+    width: 3rem;
+}
+
+.profile-activity-text{
+    width: 30rem;
+    margin-right: 3rem;
 }
 
 
-.profile-activity-date {
-    text-align: right;
-  }
-  
+
 .profile-activity {
     display: flex;
-    align-items: center;
-    justify-content: space-between; 
     padding: 20px;
 }
 
 .profile-activity-text h4 {
     color: #888;
-    font-size: 20px;
-    flex-grow: 1;
-    
-    
-}
-.profile-activity-text {
-    text-align: left;
-}
-.profile-activity-date h5 {
     font-size: 15px;
-    margin-left: 20px; 
+    flex-grow: 1;
 }
+
