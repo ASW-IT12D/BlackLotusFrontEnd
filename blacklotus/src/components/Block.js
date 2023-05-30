@@ -86,7 +86,7 @@ function Block() {
     <div>
         <div>
           {blocked && (
-            <div className="motiveContainer">
+            <div className="BlockmotiveContainer">
               Blocked: {blocked_motive}
             </div>
           )}
@@ -99,11 +99,11 @@ function Block() {
           >
           </button>
           {lightboxOpen && (
-            <div className="lightbox">
+            <div className="lightboxBlock">
               <br></br>
               <button 
                 onClick={closeLightbox}
-                className="crossButton"
+                className="crossButtonBlock"
                 >
               </button>
               <br></br>
@@ -118,7 +118,7 @@ function Block() {
               <br></br>
               <button 
                 onClick={closeLightbox}
-                className="savebutton"
+                className="savebuttonBlock"
                 >Save
               </button>
             </div>)}

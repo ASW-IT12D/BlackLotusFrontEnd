@@ -1,5 +1,5 @@
 
-.motiveContainer {
+.BlockmotiveContainer {
     background-color: #e44057;
     color: white;
     padding: 10px;
@@ -7,7 +7,7 @@
     text-align: left;
   }  
 
-.redLine{
+.BlockredLine{
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -43,7 +43,7 @@
     height: 150px;
 }
 
-.savebutton{
+.savebuttonBlock {
     background-color: #52b3d0;
     border: none;
     color: white;
@@ -51,7 +51,7 @@
     height: 40px;
 }
 
-.lightbox {
+.lightboxBlock {
     background-color: whitesmoke;
     position: fixed;
     top: 0;
@@ -61,7 +61,7 @@
     z-index: 98;
   }
 
-.crossButton{
+.crossButtonBlock {
     width: 60px;
     height: 40px;
     border: none;
