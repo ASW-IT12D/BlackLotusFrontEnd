@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { changeUser, getToken } from '../Token';
+import './css/Deadline.css';
 
 function SingleIssue() {
   const [subject, setSubject] = useState('');
@@ -13,7 +14,7 @@ function SingleIssue() {
   const [deadline, setDeadline] = useState(true);
   const [deadline_motive, setDeadlineMotive] = useState('');
   const [deadline_date, setDeadlineDate] = useState('27-06-2032');
-  const idIssue = 17;
+  const idIssue = 19;
 
   function getCookie(name) {
     let cookieValue = null;
@@ -105,56 +106,35 @@ function SingleIssue() {
 
 
   };
-
   return (
-    <div>
-            <div>
-              <label>Date: <input type="text" value={deadline_date} onChange={handleDeadlineDateChange} /></label>
-              <label>Motive: <input type="text" value={deadline_motive} onChange={handleDeadlineMotiveChange} /></label>
-              <br></br><button onClick={handleButtonClick}>Add Deadline</button>
-            </div>
-      <label>Subject: <input type="text" value={subject} onChange={handleSubjectChange} /></label>
-      <br></br>
-      <label>Description: <input type="text" value={description} onChange={handleDescriptionChange} /></label>
-      <br></br>
-      <label>Status:
-        <select value={status} onChange={handleStatusChange}>
-          <option value="New">New</option>
-          <option value="In progress">In progress</option>
-          <option value="Ready for test">Ready for test</option>
-          <option value="Closed">Closed</option>
-          <option value="Needs info">Needs info</option>
-          <option value="Rejected">Rejected</option>
-          <option value="Postponed">Postponed</option>
-        </select>
-      </label>
-      <br></br>
-      <label>Types:
-        <select value={type} onChange={handleTypeChange}>
-          <option value="Bug">Bug</option>
-          <option value="Question">Question</option>
-          <option value="Disables">Disables</option>
-        </select>
-      </label>
-      <br></br>
-      <label>Severity:
-        <select value={severity} onChange={handleSeverityChange}>
-          <option value="Whishlist">Whishlist</option>
-          <option value="Minor">Minor</option>
-          <option value="Normal">Normal</option>
-          <option value="Important">Important</option>
-          <option value="Critical">Critical</option>
-        </select>
-      </label>
-      <br></br>
-      <label>Priority:
-        <select value={priority} onChange={handlePriorityChange}>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-      </label>
-      <br></br><button onClick={handleButtonClick}>Submit</button>
+    <div className="container">
+      <h1 className="title">Fijar fecha de vencimiento</h1>
+      <div className="inputField">
+        <input
+          className="dateInput"
+          type="text"
+          value={deadline_date}
+          onChange={handleDeadlineDateChange}
+          placeholder="dd-mm-yyyy"
+        />
+      </div>
+      <div className="inputField">
+        <label className="motiveLabel">Motivo para fijar fecha de vencimiento</label>
+        <br />
+        <textarea
+          className="motiveInput"
+          value={deadline_motive}
+          onChange={handleDeadlineMotiveChange}
+          placeholder="¿Por qué esta issue necesita una fecha de vencimiento?"
+          rows="4"
+          cols="50"
+        />
+      </div>
+      <div>
+        <button className="button" onClick={handleButtonClick}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 }

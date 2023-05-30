@@ -1,0 +1,50 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .inputField {
+    margin-bottom: 20px;
+  }
+  
+  .dateInput {
+    width: 400px;
+    height: 40px;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .motiveLabel {
+    font-size: 18px;
+  }
+  
+  .motiveInput {
+    width: 400px;
+    height: 120px;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .button {
+    background-color: #008aa8;
+    color: white;
+    padding: 12px 40px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    border-width: 2px;
+  }
+  
+  .button:hover {
+    background-color: #00687a;
+  }
+  
