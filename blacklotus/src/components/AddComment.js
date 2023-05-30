@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { changeUser, getToken} from '../Token';
+import './css/AddComment.css'
+import 'react-quill/dist/quill.snow.css';
 
-function SingleIssue() {
+function AddComment() {
   const [comment, setComment] = useState('');
-  const idIssue = 13;
+  const [Editing, setIsEditing] = useState(false);
+  const idIssue = 12;
   function getCookie(name) {
     let cookieValue = null;
-
-    console.log(document)
 
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
 
-            // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
 
@@ -24,16 +24,22 @@ function SingleIssue() {
     }
 
     return cookieValue;
-}
+  }
   
-
   const handleComment = (event) => {
+    setIsEditing(true);
     setComment(event.target.value);
   };
 
+  const handleButtonCancelComment = () => {
+    setIsEditing(false);
+  };
+  
+
   changeUser()
 
-  const handleButtonClick = () => {
+  const handleButtonComment = () => {
+    setIsEditing(true);
     const data = {
       comment: comment,
     };
@@ -52,10 +58,26 @@ function SingleIssue() {
 
   return (
     <div>
-      <label>Comment here: <input type="text" value={comment} onChange={handleComment} /></label>
-      <br></br><button onClick={handleButtonClick}>Comment</button>
+      <div>
+        {Editing ? (
+          <div>
+            <textarea
+              className="Commentinput"
+              value={comment}
+              onChange={handleComment}
+              placeholder="Type a new comment here"
+            ></textarea>
+            <button className="save-buttonComments" onClick={handleButtonComment}></button>
+            <button className="cross-buttonComments" onClick={handleButtonCancelComment}></button>
+          </div>
+        ) : (
+          <div className="Commentwrapper">
+            <span onClick={handleComment}></span>
+          </div>
+        )}
+      </div>
     </div>
-  );
+  );  
+ 
 }
-
-export default SingleIssue;
+export default AddComment;
