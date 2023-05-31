@@ -22,9 +22,13 @@ export function getCookie(name) {
 
 export function getToken()
 {
-    if(localStorage.getItem('token') === null) localStorage.setItem('token', "2dc487c2d30e176a981e8d3f8e9b7c83da7a19f5");
-    return localStorage.getItem('token');
-
+    if(localStorage.getItem('token')){
+        return localStorage.getItem('token');
+    }
+    else {
+        changeUser(0)
+        return localStorage.getItem('token')
+    }
 }
 
 export function changeUser(id)
@@ -32,37 +36,56 @@ export function changeUser(id)
 
     switch(id) {
         case 0:
-            localStorage.setItem('token', "2dc487c2d30e176a981e8d3f8e9b7c83da7a19f5");//bee lluis123
+            localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");//bee lluis123
             console.log(localStorage.getItem('token'))
             break;
         case 1:
-            localStorage.setItem('token', "c63178cb814c3593c902a1ec6e3ec73ba2b79b15");//llpfdc lluis123
+            localStorage.setItem('token', "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82");//llpfdc lluis123
             console.log(localStorage.getItem('token'))
             break;
         
         case 2: 
-            localStorage.setItem('token', "a75780f3f06775ba59fbc34db552d6d91a8f8a56");//admin admin
+            localStorage.setItem('token', "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a");//admin admin
             console.log(localStorage.getItem('token'))
             break;
         
         default:
-            localStorage.setItem('token', "2dc487c2d30e176a981e8d3f8e9b7c83da7a19f5");
+            localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");
             console.log(localStorage.getItem('token'))
             break;
     }
 }
 
-export function getUsername(id) {
-    switch(id) {
-        case 0:
-            return "bee";//bee lluis123
+export function getUsername() {
+    switch(localStorage.getItem('token')) {
+        case "3ed3a7e39a081e5cc7768911358781896c4aec29":
+            return "bee";
+        case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
+            return "llpfdc"
+        
+        case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
+            return "admin";
+    }
+}
+
+export function getIdUser() {
+    switch(localStorage.getItem('token')) {
+        case "3ed3a7e39a081e5cc7768911358781896c4aec29":
+            return 0;
+        case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
+            return 1;        
+        case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
+            return 2;
+    }
+}
+
+export function getUsernameId(id){
+    switch (id) {
         case 1:
-            return "llpfdc"//llpfdc lluis123
-        
-        case 2: 
-            return "admin"//admin admin
-        
-        default:
+            return "admin"
+        case 2:
             return "bee"
+        case 3:
+            return "llpfdc"
     }
 }

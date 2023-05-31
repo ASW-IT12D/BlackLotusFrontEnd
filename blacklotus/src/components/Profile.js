@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { changeUser, getToken, getUsername } from '../Token';
+import { changeUser, getToken, getUsername,getIdUser } from '../Token';
 import NavBar from './NavBarProfile';
 import './css/Profile.css';
-
+import {useNavigate} from 'react-router-dom';
 function Profile() {
   const [profile, setProfile] = useState(null);
-  const [selectedUser, setSelectedUser] = useState(0);
-
+  const [selectedUser, setSelectedUser] = useState(getIdUser());
+  const navigate = useNavigate()
   const fetchProfileData = async (username) => {
     const URL = 'http://127.0.0.1:8000/profile/' + username + '/';
     try {
@@ -29,7 +29,7 @@ function Profile() {
   };
 
   useEffect(() => {
-    const username = getUsername(selectedUser);
+    const username = getUsername();
     fetchProfileData(username);
   }, [selectedUser]);
 
@@ -38,7 +38,9 @@ function Profile() {
     setSelectedUser(newSelectedUser);
     changeUser(newSelectedUser);
   };
-
+  const handleButtonClickEdit = () => {
+    navigate('/edit')
+  }
   return (
     <div className='profile'>
       <div className='profile-col'>
@@ -66,6 +68,10 @@ function Profile() {
             <div className='profile-select-button'>
               <button className='button-changeUser' onClick={handleButtonClick}>CHANGE</button>
             </div>
+            <div className='profile-edit-button'>
+              <button className='button-changeUser' onClick={handleButtonClickEdit}>EDIT</button>
+            </div>
+
           </div>
         </div>
       </div>
