@@ -53,31 +53,43 @@ function AddComment() {
         },
         body: JSON.stringify(data),
     });
-
+    setIsEditing(false);
   };
 
   return (
     <div>
+      <br></br>
       <div>
         {Editing ? (
           <div>
-            <textarea
-              className="Commentinput"
-              value={comment}
-              onChange={handleComment}
-              placeholder="Type a new comment here"
-            ></textarea>
-            <button className="save-buttonComments" onClick={handleButtonComment}></button>
-            <button className="cross-buttonComments" onClick={handleButtonCancelComment}></button>
+            <table>
+              <tr>
+                <td>
+                  <textarea
+                    className="Commentinput"
+                    value={comment}
+                    onChange={handleComment}
+                    placeholder="Type a new comment here"
+                  ></textarea>
+                </td>
+                <td className="ButtonPositionComment">
+                  <br></br>
+                  <button className="save-buttonComments" onClick={handleButtonComment}></button>
+                  <button className="cross-buttonComments" onClick={handleButtonCancelComment}></button>
+                </td>
+              </tr>
+            </table>
           </div>
         ) : (
           <div className="Commentwrapper">
-            <span onClick={handleComment}></span>
+            <span onClick={handleComment}>Type a new comment here</span> 
           </div>
         )}
       </div>
     </div>
-  );  
+  );
+  
+  
  
 }
 export default AddComment;
