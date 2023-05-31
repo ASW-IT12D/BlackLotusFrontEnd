@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { changeUser, getToken,getUsernameId } from '../Token';
+import { getToken,getUsernameId } from '../Token';
 import './css/Issues.css';
-
+import {Link} from 'react-router-dom';
 function MainIssues() {
   const [issues, setIssues] = useState([]);
   useEffect(() => {
+    console.log(getToken())
     fetch("http://127.0.0.1:8000/issues/", {
       method: 'GET',
       headers: {
@@ -84,9 +85,13 @@ function MainIssues() {
             <div className='issue-date'>
               <a>{formatDate(issue.modifieddate)}</a>
             </div>
+            {issue.asignedTo[0] &&(
             <div className='issue-assign'>
-              {getUsernameId(issue.asignedTo[0])}
-            </div>
+              
+              <Link to={'/profile/'+ getUsernameId(issue.asignedTo[0])}  className="nav-link">
+                {getUsernameId(issue.asignedTo[0])}
+              </Link>
+            </div>)}
           </div>
         </React.Fragment>
       ))}
