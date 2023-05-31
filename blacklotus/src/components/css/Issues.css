@@ -30,7 +30,7 @@
 }
 
 .issue-status{
-    width: 3rem;
+    width: 8rem;
     height: 1.5rem;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -109,6 +109,5 @@
     height: 1.5rem;
     margin-left: 3rem;
     margin-right: 3rem;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin-top: 0.2rem;
 }

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { changeUser, getToken, getUsername,getIdUser } from '../Token';
 import NavBar from './NavBarProfile';
 import './css/Profile.css';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 function Profile() {
   const [profile, setProfile] = useState(null);
   const [selectedUser, setSelectedUser] = useState(getIdUser());
   const navigate = useNavigate()
+  
   const fetchProfileData = async (username) => {
     const URL = 'http://127.0.0.1:8000/profile/' + username + '/';
     try {
@@ -39,7 +40,7 @@ function Profile() {
     changeUser(newSelectedUser);
   };
   const handleButtonClickEdit = () => {
-    navigate('/edit')
+    navigate('/edit/'+ getUsername())
   }
   return (
     <div className='profile'>
