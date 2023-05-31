@@ -1,0 +1,23 @@
+.CommentDate{
+    color: #84869f;
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.CommentCreator{
+    color: #008aa8;
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.CommentFoto{
+    color: white;
+    margin-right: 20px;
+}
+
+.CommentMessage{
+    color: #4c566a;
+    font-size: 20px;
+    text-align: center;
+}
+
