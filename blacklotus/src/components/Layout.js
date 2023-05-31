@@ -1,9 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom';
+import { getUsername } from '../Token';
 
 function Layout() {
-  // Cuerpo de la función
+  const username = getUsername()
   return (
     <div>
         <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
@@ -16,7 +17,7 @@ function Layout() {
                         <Link to='/create' className="nav-link"> Create Issue </Link>
                     </li>
                     <li class="nav-item active">
-                        <Link to='/profile'  className="nav-link"> Profile </Link>
+                        <Link to={`/profile/${username}`} className="nav-link"> Profile </Link>
                     </li>
                 </ul>
             </div>
