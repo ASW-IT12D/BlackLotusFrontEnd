@@ -9,21 +9,25 @@
     position: fixed;
     top: 7rem;
     left: 25rem;
-    width: 15rem;
+    width: 12rem;
 }
 
 .profile-bio {
-    height: 15rem;
-    width: 15rem;
+    height: 12rem;
+    width: 12rem;
+    word-wrap: break-word;
 }
+
+
 .profile-image {
-    height: 15rem;
-    width: 15rem;
+    height: 12rem;
+    width: 12rem;
     overflow: hidden;
 }
+
 .profile-change {
-    height: 15rem;
-    width: 15rem;
+    height: 12rem;
+    width: 12rem;
 }
 .profile-select-user {
     margin-top: 1.5rem;
@@ -45,6 +49,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
   
@@ -74,4 +79,23 @@
     margin-top: 10px;
 }
 
+.timeline-col{
+    width: 60rem;
+    margin-top: 0.4rem;
+    margin-left: 20rem;
+}
 
+.change-profile-col {
+    position: fixed;
+    top: 7rem;
+    right: 5rem;
+    width: 12rem;
+}
+
+.profile-select-user select{
+    width: 10rem;
+}
+
+.profile-select-button button{
+    width: 10rem;
+}

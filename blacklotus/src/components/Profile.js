@@ -64,20 +64,8 @@ function Profile() {
           {condition && (
           <div>
             <hr />
-            <div className='profile-change'>
-              <div className='profile-select-user'>
-                <select id="userSelector">
-                  <option value={0}>bee</option>
-                  <option value={1}>llpfdc</option>
-                  <option value={2}>admin</option>
-                </select>
-              </div>
-              <div className='profile-select-button'>
-                <button className='button-changeUser' onClick={handleButtonClick}>CHANGE</button>
-              </div>
-              <div className='profile-edit-button'>
+            <div className='profile-edit-button'>
                 <button className='button-changeUser' onClick={handleButtonClickEdit}>EDIT</button>
-              </div>
             </div>
           </div>
         )}
@@ -88,6 +76,23 @@ function Profile() {
         <div className='profile-activity'>
           {profile &&<NavBar userProp={profile} />}
         </div>
+      </div>
+
+      <div className='change-profile-col'>
+        {condition && (
+          <div className='profile-change'>
+            <div className='profile-select-user'>
+                <select id="userSelector">
+                  <option value={0}>bee</option>
+                  <option value={1}>llpfdc</option>
+                  <option value={2}>admin</option>
+                </select>
+            </div>
+            <div className='profile-select-button'>
+              <button className='button-changeUser' onClick={handleButtonClick}>CHANGE</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

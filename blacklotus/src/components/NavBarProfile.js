@@ -22,16 +22,16 @@ const NavBar = (props) => {
       componentToRender = <Token/>;
       break;
     default:
-      componentToRender = null;
+      componentToRender = <Timeline profileProp={props.userProp}/>;
       break;
   }  
   return (
     <div className='bar'>
       <nav>
         <ul>
-          <li onClick={() => handleOptionClick('timeline')}>Timeline</li>
-          <li onClick={() => handleOptionClick('watchers')}>Watchers</li>
-          <li onClick={() => handleOptionClick('token')}>Token</li>
+          <li onClick={() => handleOptionClick('timeline')}><a>Timeline</a></li>
+          <li onClick={() => handleOptionClick('watchers')}><a>Watchers</a></li>
+          <li onClick={() => handleOptionClick('token')}><a>Token</a></li>
         </ul>
       </nav>
       {componentToRender}
