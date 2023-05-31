@@ -1,0 +1,27 @@
+.Filtros {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .Filtros button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100px;
+    height: 20px;
+  }
+  
+  .Filtros ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .Filtros ul li {
+    padding: 0;
+    margin: 0;
+  }
+
+  
