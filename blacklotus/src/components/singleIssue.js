@@ -17,7 +17,7 @@ function EditIssue() {
 return (
   <div>
     <div>
-    <Subject/>
+        <Subject/>
         <hr />
         <Description/>
         <hr/>
