@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom';
 import { getUsername } from '../Token';
+
 function Layout() {
     return (
         <div>
@@ -23,6 +24,7 @@ function Layout() {
         </div> 
     
     );
+
 }
 
 export default Layout;
