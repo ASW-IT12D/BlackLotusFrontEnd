@@ -12,7 +12,7 @@ function Layout() {
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/issue">New Issue</a>
+                        <a class="nav-link" href="/issue">Deadline</a>
                     </li>
                 </ul>
             </div>
