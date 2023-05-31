@@ -1,50 +1,79 @@
-.container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .inputField {
-    margin-bottom: 20px;
-  }
-  
-  .dateInput {
-    width: 400px;
-    height: 40px;
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  .motiveLabel {
-    font-size: 18px;
-  }
-  
-  .motiveInput {
-    width: 400px;
-    height: 120px;
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  .button {
-    background-color: #008aa8;
-    color: white;
-    padding: 12px 40px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    outline: none;
-    transition: background-color 0.3s ease;
-    width: 200px;
-    border-width: 2px;
-  }
-  
-  .button:hover {
-    background-color: #00687a;
-  }
-  
+
+.DeadlinemotiveContainer {
+  background-color: #e44057;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  background-image: url('../../../public/clock.png');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25px;
+  padding-left: 30px;
+  max-width: 150px;
+}
+
+.deadlinedStyle {
+  width: 40px;
+  height: 40px;
+  background-color: gray;
+  border: none;
+  background-image: url('../../../public/clock.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px;
+  margin-right: 30px;
+}
+.undeadlineStyle {
+  width: 40px;
+  height: 40px;
+  background-color: #e44057;
+  border: none;
+  background-image: url('../../../public/clock.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px;
+  margin-right: 30px;
+}
+
+.deadlinedate{
+  width: 420px;
+  height: 32.6px;
+}
+
+.deadlinemotive{
+  width: 420px;
+  height: 150px;
+}
+
+.savebuttonDeadline {
+  background-color: #52b3d0;
+  border: none;
+  color: white;
+  width: 420px;
+  height: 40px;
+}
+
+.lightboxDeadline {
+  background-color: whitesmoke;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+}
+
+.crossButtonDeadline {
+  width: 60px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  background-image: url('../../../public/cross.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  margin-right: 30px;
+  right: 0;
+  position: absolute; 
+}
