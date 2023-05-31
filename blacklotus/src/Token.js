@@ -33,36 +33,36 @@ export function getToken()
 
 export function changeUser(id)
 {
-
+    
     switch(id) {
         case 0:
             localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");//bee lluis123
-            console.log(localStorage.getItem('token'))
+            
             break;
         case 1:
             localStorage.setItem('token', "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82");//llpfdc lluis123
-            console.log(localStorage.getItem('token'))
+            
             break;
         
         case 2: 
             localStorage.setItem('token', "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a");//admin admin
-            console.log(localStorage.getItem('token'))
+            
             break;
         
         default:
             localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");
-            console.log(localStorage.getItem('token'))
+            
             break;
     }
 }
 
 export function getUsername() {
+    
     switch(localStorage.getItem('token')) {
         case "3ed3a7e39a081e5cc7768911358781896c4aec29":
             return "bee";
         case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
             return "llpfdc"
-        
         case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
             return "admin";
     }
