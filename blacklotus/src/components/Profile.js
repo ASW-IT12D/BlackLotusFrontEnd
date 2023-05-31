@@ -7,6 +7,7 @@ function Profile() {
   const [profile, setProfile] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
   const navigate = useNavigate()
+  const {username} = useParams()
   const fetchProfileData = async (username) => {
     const URL = 'http://127.0.0.1:8000/profile/' + username + '/';
     try {
