@@ -6,10 +6,33 @@ import { useParams } from 'react-router-dom';
 
 function SubjectIssue() {
 const [issue, setIssue] = useState(null)
+const [profile, setProfile] = useState(null);
 
 const { id } = useParams();
 
 const URL = 'http://127.0.0.1:8000/issue/'+id+'/';
+
+const fetchProfileData = async () => {
+  const URL = 'http://127.0.0.1:8000/profile/' + issue.data.creator + '/';
+  try {
+    const response = await fetch(URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + getToken()
+      }
+    });
+    if (response.ok) {
+      const data = await response.json();
+      setProfile(data);
+    } else {
+      throw new Error('Failed to fetch profile');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
 useEffect(() => {
 const fetchIssue = async () => {
@@ -24,6 +47,7 @@ headers: {
 if (response.ok) {
 const data = await response.json();
 setIssue(data);
+     
 } else {
 throw new Error('Failed to fetch profile');
 }
@@ -42,6 +66,12 @@ const handleTextClick = () => {
 setIsEditing(true);
 setText(issue.data.subject);
 };
+
+const getImage = () => {
+    if (issue != null) fetchProfileData();
+    if (profile != null)
+      return profile.profile_image.url_image
+}
 
 function formatDate() {
     const date = new Date(issue.data.creationdate);
@@ -132,7 +162,7 @@ return (
               </div>
             </div>
             <div className='issue-pfp'>
-                {issue && <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Profile"/>}
+                {issue && <img src={getImage()} alt="Profile"/>}
             </div>
     </div>
   </div>
