@@ -31,15 +31,14 @@
 }
 
 .table {
-    margin-top: 5rem;
     margin-left: 5rem;
 }
 
 .issue-text{
-    width: 10rem;
+    width: 30rem;
     height: 1.5rem;
     margin-left: 3rem;
-    margin-right: 30rem;
+    margin-right: 10rem;
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
 }
@@ -129,4 +128,8 @@
 
 .bulk-insert-comp {
     margin-left: 107rem;
+}
+
+.orderBy {
+    margin-left: 8rem;
 }
