@@ -1,15 +1,42 @@
 import './css/EditProfile.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { getToken, getUsername } from '../Token';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 function EditProfile() {
+    const [profile, setProfile] = useState(null);
+    const {username} = useParams()
     const [email,setEmail] = useState('')
     const [fullName,setFullName] = useState('')
     const [bio, setBio] = useState('')
     const navigate = useNavigate()
+    const fetchProfileData = async (username) => {
+    const URL = 'http://127.0.0.1:8000/profile/' + username + '/';
+    try {
+      const response = await fetch(URL, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + getToken()
+        }
+      });
+      if (response.ok) {
+        const data = await response.json()
+        setProfile(data);
+        setBio(data.profile.bio)
+        setEmail(data.user.email)
+        setFullName(data.user.first_name)
+      } else {
+        throw new Error('Failed to fetch profile');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+    useEffect(()=> {
+       fetchProfileData(username);
+    })
     const handleSubmit = (e) => {
         e.preventDefault()
-        const username = getUsername()
         var jsonUser = {}
         if(bio !== '') {
             jsonUser.bio = bio
