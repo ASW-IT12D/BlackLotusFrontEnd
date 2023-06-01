@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './components/mainIssues';
-import Issue from './components/singleIssue';
+import Issue from './components/Filtros';
 import Layout from './components/Layout';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
