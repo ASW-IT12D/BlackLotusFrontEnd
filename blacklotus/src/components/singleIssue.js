@@ -1,78 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { changeUser, getToken } from '../Token';
 
-function SortedIssues() {
-  const [issues, setIssues] = useState([]);
-  const [sortedIssues, setSortedIssues] = useState([]);
-  const [sortOptions, setSortOptions] = useState({
-    attribute: 'subject',
-    order: 'asc'
-  });
+function SingleIssue() {
+  const [subject, setSubject] = useState('');
+  const [filteredIssues, setFilteredIssues] = useState([]);
+
+  const handleSubjectChange = (event) => {
+    setSubject(event.target.value);
+  };
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/issues/', {
+    const url = `http://127.0.0.1:8000/issues/?subject=${subject}`;
+  
+    fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Token ' + getToken()
       }
     })
-      .then(resp => resp.json())
-      .then(resp => {
-        setIssues(resp);
-        setSortedIssues(resp);
-      });
-  }, []);
-
-  const handleSortChange = (event) => {
-    const { name, value } = event.target;
-    setSortOptions(prevOptions => ({
-      ...prevOptions,
-      [name]: value
-    }));
-  };
-
-  useEffect(() => {
-    const { attribute, order } = sortOptions;
-
-    const sorted = [...issues].sort((a, b) => {
-      if (a[attribute] < b[attribute]) {
-        return order === 'asc' ? -1 : 1;
-      }
-      if (a[attribute] > b[attribute]) {
-        return order === 'asc' ? 1 : -1;
-      }
-      return 0;
-    });
-
-    setSortedIssues(sorted);
-  }, [sortOptions, issues]);
+      .then(response => response.json())
+      .then(data => setFilteredIssues(data))
+      .catch(error => console.log(error));
+  }, [subject]);
+  
 
   return (
     <div>
-      <h2>Sorted Issues</h2>
-
-      <div>
-        <label>Sort By:</label>
-        <select name="attribute" value={sortOptions.attribute} onChange={handleSortChange}>
-          <option value="status">Status</option>
-          <option value="type">Type</option>
-          <option value="severity">Severity</option>
-          <option value="priority">Priority</option>
-        </select>
-        <select name="order" value={sortOptions.order} onChange={handleSortChange}>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </div>
-
-      <ul>
-        {sortedIssues.map(issue => (
-          <li key={issue.id}>{issue.subject}</li>
-        ))}
-      </ul>
+      <label>
+        Subject: <input type="text" value={subject} onChange={handleSubjectChange} />
+      </label>
+      <br />
+      {filteredIssues.map((issue) => (
+        <div key={issue.id}>
+          <h2>{issue.subject}</h2>
+          <p>{issue.description}</p>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default SortedIssues;
+export default SingleIssue;
