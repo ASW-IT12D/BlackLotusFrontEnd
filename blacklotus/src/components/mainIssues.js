@@ -187,25 +187,6 @@ function MainIssues() {
     else return "row-issue"
   };
   return (
-<<<<<<< HEAD
-    <div className='table'>
-      <div className='bulk-insert-comp'><BulkInsert/></div>
-      {issues.map((issue, index) => (
-        <React.Fragment key={index}>
-          <div className={getIsBloq(issue.blocked)}>
-            <div className={getClassName(issue.type)} />
-            <div className={getClassName(issue.severity)} />
-            <div className={getClassName(issue.priority)} />
-            <div className='issue-text'>
-              
-              <Link to={"issue/"+issue.id} className="nav-link"><a>
-                <span style={{ color: '#1097a9' }}>#{issue.id} </span>  
-                 {issue.subject} 
-              </a></Link>
-            </div>
-            <div className='issue-status'>
-              <a>{getTextStatus(issue.status)}</a>
-=======
     <div>
       <div className='Globalfiltros'>
        <button className="ActivateFiltrosButton"onClick={handleButtonClick}>
@@ -338,7 +319,6 @@ function MainIssues() {
               </div>
               <span style = {{marginRight: '7rem'}}>Modified</span>     
               <span style = {{marginRight: '5px'}}>Assign to</span>
->>>>>>> 1407ce4315a5d335656e8faa7ef02fce6fc9b35d
             </div>
             
         </div>
@@ -352,9 +332,10 @@ function MainIssues() {
               <div className={getClassName(issue.severity)} />
               <div className={getClassName(issue.priority)} />
               <div className='issue-text'>
-                <a>
-                  <span style={{ color: '#1097a9' }}>#{issue.id}</span> {issue.subject}
-                </a>
+                <Link to={"issue/"+issue.id} className="nav-link"><a>
+                  <span style={{ color: '#1097a9' }}>#{issue.id} </span>  
+                  {issue.subject} 
+                </a></Link>
               </div>
               <div className='issue-status'>
                 <a>{getTextStatus(issue.status)}</a>

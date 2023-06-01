@@ -45,7 +45,7 @@ function Watchers() {
   const handleButtonAddMe = () => {
     setWatcherName(getUsername)
     const data = {
-      watchers: getUsername()
+      asignTo: getUsername()
     };
 
         fetch('http://127.0.0.1:8000/issue/' + id + '/', {
@@ -61,7 +61,7 @@ function Watchers() {
 
   const handleButtonClick = () => {
     const data = {
-      watchers: watcherName
+      asignTo: watcherName
     };
     if (watcherName != "")
     {
@@ -126,7 +126,7 @@ function Watchers() {
 
   return (
     <div>
-    <label>Watchers</label>
+    <label>Assigned</label>
     <div>
         {watcherName && (
         <div className='watcher-Profiles'>
@@ -140,7 +140,7 @@ function Watchers() {
     <div>
         <button className='boton-Watchers'
                 onClick={()=> {openLightbox();}}>
-                    + Add Watcher
+                    + Add Assigned
         </button>
         <button className='boton-WatchersMe'
                 onClick={()=> {handleButtonAddMe();}}>

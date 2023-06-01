@@ -36,12 +36,12 @@ function SingleIssue() {
   }, []);
 
 
-    var [subject, setSubject] = useState('');
-    var [description, setDescription] = useState('');
-    var [priority, setPriority] = useState('Low');
-    var [status, setStatus] = useState('New');
-    var [type, setType] = useState('Bug');
-    var [severity, setSeverity] = useState('Whishlist');
+    const [subject, setSubject] = useState('');
+    const [description, setDescription] = useState('');
+    const [priority, setPriority] = useState('Low');
+    const [statuse, setStatus] = useState('New');
+    const [type, setType] = useState('Bug');
+    const [severity, setSeverity] = useState('Whishlist');
   
 
 
@@ -75,7 +75,7 @@ function SingleIssue() {
     const data = {
       subject: subject,
       description: description,
-      status: status,
+      status: statuse,
       type: type,
       severity: severity,
       priority: priority
@@ -101,7 +101,7 @@ function SingleIssue() {
       <label>Description: <input type="text" value={description} onChange={handleDescriptionChange} /></label>
       <br></br>
       <label>Status:
-        <select value={status} onChange={handleStatusChange}>
+        <select value={statuse} onChange={handleStatusChange}>
           <option value="New">New</option>
           <option value="In progress">In progress</option>
           <option value="Ready for test">Ready for test</option>

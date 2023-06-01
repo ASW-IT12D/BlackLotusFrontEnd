@@ -13,7 +13,7 @@ const URL = 'http://127.0.0.1:8000/issues/';
 
 var [subject, setSubject] = useState('');
 var [description, setDescription] = useState('');
-var [status, setStatus] = useState('');
+var [status, setStatus] = useState('New');
 var [type, setType] = useState('Bug');
 var [priority, setPriority] = useState('Low');
 var [severity, setSeverity] = useState('Whishlist');
