@@ -26,11 +26,18 @@ export function getToken()
 
 }
 
-export function changeUser(name)
-{
-    if (name === 0) localStorage.setItem('token', "7113cb8311ce77c16b9227e88aba4241e3b478c9");
-
-    if (name === 1) localStorage.setItem('token', "user2");
-
-    if (name === 2) localStorage.setItem('token', "user3");
-}
+export function changeUser(name) {
+    if (name === 0) {
+      localStorage.setItem('token', "7113cb8311ce77c16b9227e88aba4241e3b478c9");
+      console.log("Token cambiado a: 7113cb8311ce77c16b9227e88aba4241e3b478c9");
+    }
+    if (name === 1) {
+      localStorage.setItem('token', "user2");
+      console.log("Token cambiado a: user2");
+    }
+    if (name === 2) {
+      localStorage.setItem('token', "user3");
+      console.log("Token cambiado a: user3");
+    }
+  }
+  
