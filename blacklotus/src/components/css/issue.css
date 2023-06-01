@@ -374,8 +374,15 @@ padding-top: 2px;
   }
   
 
-  .delete {
-    margin-right: 10px; /* Ajusta el margen entre los botones según tus necesidades */
+  .deleteIssue {
+    width: 40px;
+    height: 40px;
+    background-color: #eceff4;
+    background-image: url('../../../public/papelera.png'); /* Ruta a la imagen */
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
   }
   
   
