@@ -1,23 +1,50 @@
 
 
-
+.edit-profile-data {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 20px;
+}
 .edit-user {
-    max-width: 40rem;
-    margin: 0 auto;
-    text-align: center;
+    width: 40rem;
+    margin-left: 5rem;
+    text-align: left;
+    margin-top: 6rem;
 }
 
+.profile-image-edit {
+    width: 12rem;
+    margin-left: 20rem;
+    text-align: left;
+    height: 100%;
+}
+
+.profile-image-image img{
+    width: 12rem;
+    height: 12rem;
+    object-fit: fill;
+}
 .edit-user label {
     text-align: left;
     display: block;
 }
 
-.edit-user h2{
-    font-size: 3rem;
+.profile-image-edit h2{
+    font-size: 1.5rem;
     color: #83eede;
-    margin-bottom: 5rem;
     margin-top: 3rem;
+    margin-bottom: 1rem;
 }
+.profile-edit-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+
+  
+
 
 .edit-user input {
     width: 100%;
@@ -52,3 +79,4 @@
     background-color: #299da8;
 }
   
+

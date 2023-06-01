@@ -65,12 +65,15 @@ function MainIssues() {
 
     return `${day}/${month}/${year}`;
   };
-
+  const getIsBloq = (issue_bloq) => {
+    if (issue_bloq) return "row-issue-bloq"
+    else return "row-issue"
+  };
   return (
     <div className='table'>
       {issues.map((issue, index) => (
         <React.Fragment key={index}>
-          <div className='row-issue'>
+          <div className={getIsBloq(issue.blocked)}>
             <div className={getClassName(issue.type)} />
             <div className={getClassName(issue.severity)} />
             <div className={getClassName(issue.priority)} />

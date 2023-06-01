@@ -5,6 +5,23 @@
     font-size: 1rem;
     margin: 0.5rem;
     display: flex;
+    border-radius: 0.5rem;
+}
+
+.row-issue-bloq {
+    width: 110rem;
+    height: 3rem;
+    background-color:#e4405740;
+    font-size: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    border-radius: 0.5rem;
+}
+
+.row-issue-bloq:hover {
+    background: #c1253a40;
+    transition: background .2s ease-in;
+    
 }
 
 .row-issue:hover {
@@ -17,8 +34,6 @@
     margin-top: 5rem;
     margin-left: 5rem;
 }
-
-
 
 .issue-text{
     width: 10rem;
