@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getToken, getCookie } from '../Token';
-import './styles/issue.css'
-import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
+import './css/issue.css'
+import { useParams } from 'react-router-dom';
 
 
 function Description() {
 const [issue, setIssue] = useState(null)
 
-const URL = 'http://127.0.0.1:8000/issue/12/';
+const { id } = useParams();
+
+const URL = 'http://127.0.0.1:8000/issue/'+id+'/';
 
 useEffect(() => {
 const fetchIssue = async () => {
@@ -76,7 +78,7 @@ const handleButtonCancelDesClick = () => {
     };
 
 return (
-    <div className='issue-page' style={{ display: 'inline-block' }}>
+    <div className='issue-page-des' style={{ display: 'inline-block' }}>
         {isEditingDes ? (
             <div>
                 <textarea

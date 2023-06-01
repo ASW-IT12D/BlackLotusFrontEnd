@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getToken, getCookie } from '../../Token';
 import { useParams } from 'react-router-dom';
-import '../styles/issue.css'
+import '../css/issue.css'
 import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
 
 

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { getToken, getCookie } from '../Token';
-import './styles/issue.css'
-import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
+import './css/issue.css'
+import { useParams } from 'react-router-dom';
 
 
 function SubjectIssue() {
 const [issue, setIssue] = useState(null)
 
-const URL = 'http://127.0.0.1:8000/issue/12/';
+const { id } = useParams();
+
+const URL = 'http://127.0.0.1:8000/issue/'+id+'/';
 
 useEffect(() => {
 const fetchIssue = async () => {
@@ -85,6 +87,7 @@ const handleButtonCancelClick = () => {
 setIsEditing(false);
 };
 
+const block = issue && issue.data.blocked
 
 return (
 
@@ -112,16 +115,23 @@ return (
             </div>
             )}
         </div>
+        <div>
+          {issue && block && (
+            <div className="BlockmotiveContainer">
+              Blocked: {issue.data.blocked_motive}
+            </div>
+          )}
+        </div>
         <div className='subheader'>
           <div className='date-user-wrap'>
-              <div className='activity-text'>
+              <div className='issue-text'>
                   <h4>
                       <a>Created by {issue && issue.data.creator}</a>
                   </h4>
                   <h5 className='date'>{issue && formatDate()}</h5>
               </div>
             </div>
-            <div className='activity-pfp'>
+            <div className='issue-pfp'>
                 {issue && <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Profile"/>}
             </div>
     </div>

@@ -1,21 +1,22 @@
-.containerSubject {
+
+.containerSubjectCrea {
     display: flex;
     flex-direction: column;
   }
 
-  .descriptionContainer
+  .descriptionContainerCrea
   {
     margin-top: 20px;
     width: 400px;
     height: 300px;
   }
 
-  .subjectContainer
+  .subjectContainerCrea
   {
     width: 400px;
   }
 
-  .status-dropdown-create {
+  .status-dropdownCrea {
     flex-grow: 0;
     background-color: #70728f;
     
@@ -28,48 +29,48 @@
     width:100%;
    }
 
-   .container {
+   .containerCrea {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .top-div {
+  .top-divCrea {
     padding: 10px;
   }
   
-  .bottom-divs {
+  .bottom-divsCrea {
     display: flex;
   }
   
-  .left-bottom-div {
+  .left-bottom-divCrea {
     flex: 1;
     padding: 10px;
   }
   
-  .right-bottom-div {
+  .right-bottom-divCrea {
     flex: 1;
     padding-left: 20px;
     padding: 10px;
   }
   
-  .bottom-div {
+  .bottom-divCrea {
     padding: 10px;
   }
 
-  .create-button{
+  .create-buttonCrea{
     width: 605px;
     height: 40px;
     background-color: #83eede;
   }
 
-  .circle-type-create {
+  .circle-typeCrea{
     width: 20px;
     height: 20px;
     border-radius: 50%;
   }
 
-  .select-type-container {
+  .select-type-containerCrea {
     color: #000;
     appearance: none;
     -webkit-appearance: none;
@@ -82,17 +83,17 @@
     flex: 1;
   }
 
-  .container-label-color {
+  .container-label-colorCrea {
     display: flex;
     justify-content: flex-end;
     padding-right: 100px;
 }
 
-.severityOption{
+.severityOptionCrea {
     padding-top: 2px;
 }
 
-.labelTypes
+.labelTypesCrea
 {
     font-size: 12px;
     color:#70728f;
@@ -101,36 +102,34 @@
     padding-top: 5px;
 }
 
-.container-types-create{
+.container-typesCrea{
     display: flex;
     padding-top: 15px;
 }
 
-.container-external {
+.container-externalCrea {
   position: relative;
   height: 100vh;
 }
 
-.cross-button {
-  width: 15px; /* Ajusta el tamaño según tus necesidades */
+
+.cross-buttonCrea {
+  width: 15px; 
   height: 15px;
-  background-image: url('../../../public/cross.png'); /* Ruta a la imagen */
-  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-image: url('../../../public/cross.png'); 
+  background-size: cover; 
   background-color: transparent;
   border: none;
   fill:#70728f;
   display:inline;
   transition:fill .2s linear;
-  /* Otros estilos según tus necesidades */
   margin-left: 200px;
 }
 
 
-.header-container {
+.header-containerCrea {
   display: flex;
   align-items: center;
   justify-content: space-between;
   
 }
-  
-  

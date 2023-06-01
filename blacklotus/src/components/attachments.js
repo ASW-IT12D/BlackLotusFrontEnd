@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getToken, getCookie } from '../Token';
-import './styles/issue.css'
+import './css/issue.css'
 import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
 import { useParams } from 'react-router-dom';
 
@@ -94,7 +94,7 @@ return (
                 <button className="disable-button"></button>
             </label>
         </div>
-        <div className='attachment-list'>    
+        <div className='attachment-list' style={{ maxHeight: '500px',overflowY: 'auto' }}>    
             {attachments && attachments.map(attachment => {
                 return  (
                     <>

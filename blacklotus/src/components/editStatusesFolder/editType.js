@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getToken, getCookie } from '../../Token';
 import { useParams } from 'react-router-dom';
-import '../styles/issue.css'
+import '../css/issue.css'
 import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
 
 
@@ -22,11 +22,14 @@ function setTypeStatus()
     issue && console.log(issue.data.type)
     if (issue && issue.data.type === 1){
         typeColor = "#E44057"
+        status = "Bug"
     } else if (issue && issue.data.type === 2){
         typeColor = "#5178D3"
+        status = "Question"
     }
     else if (issue && issue.data.type === 3){
         typeColor = "#40E4CE"
+        status = "Disabled"
     }
 }
 

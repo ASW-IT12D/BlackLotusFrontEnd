@@ -3,8 +3,8 @@ import EditStatus from './editStatusesFolder/editStatus';
 import EditType from './editStatusesFolder/editType';
 import EditSeverity from './editStatusesFolder/editSeverity';
 import EditPriority from './editStatusesFolder/editPriority';
-import './styles/issue.css'
-import 'react-quill/dist/quill.snow.css'; // Importa los estilos CSS de Quill
+import './css/issue.css'
+import { useParams } from 'react-router-dom';
 
 
 function StatusIssue() {
@@ -12,7 +12,7 @@ function StatusIssue() {
 
 return (
 
-  <div className='issue-page'>
+  <div>
     <EditStatus/>
     <EditType/>
     <EditSeverity/>

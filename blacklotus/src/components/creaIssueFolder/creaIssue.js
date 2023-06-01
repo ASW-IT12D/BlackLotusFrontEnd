@@ -75,26 +75,26 @@ const handleButtonClick = () => {
 }
 
   return (
-    <div className='container-external'>
-        <div class="content">
-            <div className='container'>
-                <div className='top-div'>
+    <div className='container-externalCrea'>
+        <div class="contentCrea">
+            <div className='containerCrea'>
+                <div className='top-divCrea'>
                     <h1>New Issue</h1>
                 </div>
-                <div className='bottom-divs'>
-                    <div className='left-bottom-div '>
-                        <div className='containerSubject'>
-                        <input placeholder='Subject' className='subjectContainer' type="text" value={subject} onChange={handleSubjectChange} />
+                <div className='bottom-divsCrea'>
+                    <div className='left-bottom-divCrea '>
+                        <div className='containerSubjectCrea'>
+                        <input placeholder='Subject' className='subjectContainerCrea' type="text" value={subject} onChange={handleSubjectChange} />
                         <textarea
                             placeholder='Please add descriptive text to help others understand this issue'
                             value={description}
-                            className='descriptionContainer'
+                            className='descriptionContainerCrea'
                             onChange={handleInputChangeDes}/>
                         </div>
                     </div>
-                    <div className='right-bottom-div'>
+                    <div className='right-bottom-divCrea'>
                         <div>
-                            <select style={{backgroundColor: statusColor, textAlign: "left"}} className='status-dropdown-create' id="dropdown" value={status} onChange={handleSelectStatusChange}>
+                            <select style={{backgroundColor: statusColor, textAlign: "left"}} className='status-dropdownCrea' id="dropdown" value={status} onChange={handleSelectStatusChange}>
                                 <option value="New">New</option>
                                 <option value="In progress">In progress</option>
                                 <option value="Ready for test">Ready for test</option>
@@ -104,45 +104,45 @@ const handleButtonClick = () => {
                                 <option value="Postponed">Postponed</option>
                             </select>
                         </div>
-                        <div className='container-types-create'>
-                            <label className='labelTypes'>
+                        <div className='container-typesCrea'>
+                            <label className='labelTypesCrea'>
                                 type
                             </label>
-                            <select className='select-type-container' id="dropdown"  value={type} onChange={handleSelectTypeChange}>
+                            <select className='select-type-containerCrea' id="dropdown"  value={type} onChange={handleSelectTypeChange}>
                                 <option value="Bug">Bug</option>
                                 <option value="Question">Question</option>
                                 <option value="Disabled">Disabled</option>
                             </select>
-                            <div className="circle-type-create" style={{ backgroundColor: typeColor}}></div>
+                            <div className="circle-typeCrea" style={{ backgroundColor: typeColor}}></div>
                         </div>
-                        <div className='container-types-create'>
-                            <label className='labelTypes'>
+                        <div className='container-typesCrea'>
+                            <label className='labelTypesCrea'>
                                 severity
                             </label>
-                            <select className='select-type-container' id="dropdown"  value={severity} onChange={handleSelectSeverityChange}>
+                            <select className='select-type-containerCrea' id="dropdown"  value={severity} onChange={handleSelectSeverityChange}>
                                 <option value="Whishlist">Whishlist</option>
                                 <option value="Minor">Minor</option>
                                 <option value="Normal">Normal</option>
                                 <option value="Important">Important</option>
                                 <option value="Critical">Critical</option>
                             </select>
-                            <div className="circle-type-create" style={{ backgroundColor: severityColor}}></div>
+                            <div className="circle-typeCrea" style={{ backgroundColor: severityColor}}></div>
                         </div>
-                        <div className='container-types-create'>
-                            <label className='labelTypes'>
+                        <div className='container-typesCrea'>
+                            <label className='labelTypesCrea'>
                                 priority
                             </label>
-                            <select className='select-type-container' id="dropdown"  value={priority} onChange={handleSelectPriorityChange}>
+                            <select className='select-type-containerCrea' id="dropdown"  value={priority} onChange={handleSelectPriorityChange}>
                                 <option value="Low">Low</option>
                                 <option value="Normal">Normal</option>
                                 <option value="High">High</option>
                             </select>
-                            <div className="circle-type-create" style={{ backgroundColor: priorityColor}}></div>
+                            <div className="circle-typeCrea" style={{ backgroundColor: priorityColor}}></div>
                         </div>
                     </div>
                 </div>
                 <div className='bottom-div '>
-                    <button className='create-button' onClick={handleButtonClick}>Create</button>
+                    <button className='create-buttonCrea' onClick={handleButtonClick}>Create</button>
                 </div>
             </div>
         </div>    
