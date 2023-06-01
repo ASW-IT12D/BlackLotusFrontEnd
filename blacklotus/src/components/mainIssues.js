@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getToken,getUsernameId } from '../Token';
 import './css/Issues.css';
 import {Link} from 'react-router-dom';
+import BulkInsert from './Bulk';
 function MainIssues() {
   const [issues, setIssues] = useState([]);
   useEffect(() => {
@@ -71,6 +72,7 @@ function MainIssues() {
   };
   return (
     <div className='table'>
+      <div className='bulk-insert-comp'><BulkInsert/></div>
       {issues.map((issue, index) => (
         <React.Fragment key={index}>
           <div className={getIsBloq(issue.blocked)}>

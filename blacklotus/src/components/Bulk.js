@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { changeUser, getToken } from '../Token';
 import './css/Bulk.css';
 
-function SingleIssue() {
+function BulkInsert() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [subject, setSubject] = useState('');
   const [description] = useState('');
@@ -66,7 +66,6 @@ function SingleIssue() {
  
   return (
     <div>
-      <br></br>
       <div> 
           <button
             onClick={() => {openLightbox();}}
@@ -75,27 +74,29 @@ function SingleIssue() {
           </button>
           {lightboxOpen && (
             <div className="lightboxBulk">
-              <br></br>
-              <button 
-                onClick={closeLightbox}
-                className="crossButtonBulk"
-                >
-              </button>
-              <br></br>
-              <h2>New bulk insert</h2>
-              <br></br>
-              <textarea
-                className="BulkIssues"
-                value={subject}
-                onChange={(event) => setSubject(event.target.value)}
-                placeholder="Introduce subjects separated by commas."
-              ></textarea>
-              <br></br>
-              <button 
-                onClick={closeLightbox}
-                className="savebuttonBulk"
-                >Save
-              </button>
+              <div className='lightbox'>
+                <button 
+                  onClick={closeLightbox}
+                  className="crossButtonBulk"
+                  >
+                </button>
+                
+                <h2>New bulk insert</h2>
+                
+                <textarea
+                  className="BulkIssues"
+                  value={subject}
+                  onChange={(event) => setSubject(event.target.value)}
+                  placeholder="Introduce subjects separated by commas."
+                ></textarea>
+                <div>
+                  <button 
+                    onClick={closeLightbox}
+                    className="savebuttonBulk"
+                    >Save
+                  </button>
+                  </div>
+                </div>
             </div>)}
         </div>
 
@@ -103,4 +104,4 @@ function SingleIssue() {
   );
 }
 
-export default SingleIssue;
+export default BulkInsert;

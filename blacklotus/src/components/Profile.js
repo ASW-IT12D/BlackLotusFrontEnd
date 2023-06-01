@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { changeUser, getToken, getUsername,getIdUser } from '../Token';
+import { changeUser, getToken, getUsername } from '../Token';
 import NavBar from './NavBarProfile';
 import './css/Profile.css';
 import {useNavigate, useParams} from 'react-router-dom';
@@ -31,7 +31,7 @@ function Profile() {
 
   useEffect(() => {
     fetchProfileData(username);
-  }, [selectedUser]);
+  }, [selectedUser,username]);
 
   const handleButtonClick = () => {
     const newSelectedUser = Number(document.getElementById('userSelector').value);
