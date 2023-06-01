@@ -3,6 +3,9 @@ import { getToken,getUsernameId } from '../Token';
 import './css/Issues.css';
 import {Link} from 'react-router-dom';
 import BulkInsert from './Bulk';
+import { getToken } from '../Token';
+import {Link} from 'react-router-dom';
+
 function MainIssues() {
   const [issues, setIssues] = useState([]);
   useEffect(() => {
