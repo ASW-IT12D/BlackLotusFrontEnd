@@ -4,7 +4,6 @@ import EditType from './editStatusesFolder/editType';
 import EditSeverity from './editStatusesFolder/editSeverity';
 import EditPriority from './editStatusesFolder/editPriority';
 import './css/issue.css'
-import { useParams } from 'react-router-dom';
 
 
 function StatusIssue() {

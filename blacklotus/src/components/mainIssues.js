@@ -82,9 +82,11 @@ function MainIssues() {
             <div className={getClassName(issue.severity)} />
             <div className={getClassName(issue.priority)} />
             <div className='issue-text'>
-              <a>
-                <span style={{ color: '#1097a9' }}>#{issue.id}</span> {issue.subject}
-              </a>
+              
+              <Link to={"issue/"+issue.id} className="nav-link"><a>
+                <span style={{ color: '#1097a9' }}>#{issue.id} </span>  
+                 {issue.subject} 
+              </a></Link>
             </div>
             <div className='issue-status'>
               <a>{getTextStatus(issue.status)}</a>

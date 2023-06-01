@@ -7,55 +7,61 @@ import { useParams } from 'react-router-dom';
 function SubjectIssue() {
 const [issue, setIssue] = useState(null)
 const [profile, setProfile] = useState(null);
+var foto = false;
 
 const { id } = useParams();
 
 const URL = 'http://127.0.0.1:8000/issue/'+id+'/';
 
-const fetchProfileData = async () => {
-  const URL = 'http://127.0.0.1:8000/profile/' + issue.data.creator + '/';
-  try {
-    const response = await fetch(URL, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token ' + getToken()
+
+  const fetchProfileData = async () => {
+    const URL = 'http://127.0.0.1:8000/profile/' + issue.data.creator + '/';
+    try {
+      if (!foto)
+      {
+      const response = await fetch(URL, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + getToken()
+        }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setProfile(data);
+        foto = true;
+      } else {
+        throw new Error('Failed to fetch profile');
       }
-    });
-    if (response.ok) {
-      const data = await response.json();
-      setProfile(data);
-    } else {
-      throw new Error('Failed to fetch profile');
     }
-  } catch (error) {
-    console.error(error);
-  }
+    } catch (error) {
+      console.error(error);
+    }
+
 };
 
+const fetchIssue = async () => {
+  try {
+  const response = await fetch(URL, {
+  method: 'GET',
+  headers: {
+  'Content-Type': 'application/json',
+  'Authorization': 'Token ' + getToken()
+  }
+  });
+  if (response.ok) {
+  const data = await response.json();
+  setIssue(data);
+       
+  } else {
+  throw new Error('Failed to fetch profile');
+  }
+  } catch (error) {
+  console.error(error);
+  }
+  };
 
 useEffect(() => {
-const fetchIssue = async () => {
-try {
-const response = await fetch(URL, {
-method: 'GET',
-headers: {
-'Content-Type': 'application/json',
-'Authorization': 'Token ' + getToken()
-}
-});
-if (response.ok) {
-const data = await response.json();
-setIssue(data);
-     
-} else {
-throw new Error('Failed to fetch profile');
-}
-} catch (error) {
-console.error(error);
-}
-};
-
 fetchIssue();
 }, []);
 
@@ -68,7 +74,7 @@ setText(issue.data.subject);
 };
 
 const getImage = () => {
-    if (issue != null) fetchProfileData();
+    if (issue != null && profile === null) fetchProfileData();
     if (profile != null)
       return profile.profile_image.url_image
 }
@@ -137,7 +143,7 @@ return (
             <div className='subject-id-wrapper'>
                 <h1 className="detail-title-text">
                     {issue &&
-                    <div className='id-issue '>#{issue.data.id}</div>
+                    <div className='id-issue'>#{issue.data.id}</div>
                     }
                     <span onClick={handleTextClick}>{issue && <h2 className='issue-subject'>{issue.data.subject}
                 </h2>}</span>
@@ -154,7 +160,7 @@ return (
         </div>
         <div className='subheader'>
           <div className='date-user-wrap'>
-              <div className='issue-text'>
+              <div className='issue-texts'>
                   <h4>
                       <a>Created by {issue && issue.data.creator}</a>
                   </h4>

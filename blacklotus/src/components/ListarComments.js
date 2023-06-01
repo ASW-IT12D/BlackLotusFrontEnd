@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { changeUser, getToken} from '../Token';
+import { changeUser, getToken, getUsernameId} from '../Token';
 import './css/ListarComments.css';
 import { useParams } from 'react-router-dom';
 import AddComment from './postComment';
@@ -15,15 +15,11 @@ function formatDate(dateString) {
   return `${day} ${month} ${year} ${hours}:${minutes}`;
 }
 
-function user(idUser){
-  if(idUser === 0) return "MarcChavez";
-  else if(idUser === 1) return "a";
-  else return "a";
-}
 
 function ListarComments() {
   const [comment, setComment] = useState([]);
   const [profiles, setProfiles] = useState([]);
+  const [profile, setProfile] = useState(null);
   const username = "a";
   changeUser(0);
 
@@ -42,19 +38,35 @@ function ListarComments() {
     .then(resp => setComment(resp));
   }, []);
 
-  useEffect(() => {
-    comment.forEach(comment => {
-      fetch('http://127.0.0.1:8000/profile/' + username + '/', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Token ' + getToken()
-        }
-      })
-      .then(resp => resp.json())
-      .then(resp => setProfiles(prevProfiles => [...prevProfiles, resp]));
+  const getImage = (idUser) => {
+    if (comment != null && profile === null) fetchProfileData(idUser);
+    if (profile != null)
+      return profile.profile_image.url_image
+}
+
+const fetchProfileData = async (idUser) => {
+ 
+  const URL = 'http://127.0.0.1:8000/profile/' +  getUsernameId(idUser) + '/';
+  try {
+
+    const response = await fetch(URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + getToken()
+      }
     });
-  }, [comment]);
+    if (response.ok) {
+      const data = await response.json();
+      setProfile(data);
+    } else {
+      throw new Error('Failed to fetch profile');
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
+};
 
   return (
     <div>
@@ -65,13 +77,13 @@ function ListarComments() {
               <>
                 <div className='subheaderComments'>
                 <div className='comment-pfp'>
-                      <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Profile"/>
+                      <img src = {getImage(comment.creator)} alt="Profile"/>
                   </div>
                   <div className='comment-text'>
                     <div className='containerCommentNameDate'>
                       <div>
                           <label className='CommentCreator'>
-                              <a>{user(comment.creator)}</a>
+                              <a>{getUsernameId(comment.creator)}</a>
                           </label>
                       </div>
                       <div >

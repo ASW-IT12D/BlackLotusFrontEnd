@@ -89,7 +89,7 @@
     border-radius: 50%;
 }
 
-.issue-text h4 {
+.issue-texts h4 {
 color:#008aa8;
 font-size: 15px;
 flex-basis: 50%;
@@ -110,7 +110,6 @@ flex-basis: 50%;
 
 .date {
     font-size: 15px;
-    flex-basis: 50%;
 }
 
 .issue-description{
@@ -337,8 +336,9 @@ padding-top: 2px;
     color:#000000;
     transition:all .1s linear
    }
-   .history-tabs .history-tab.active {
-    border-bottom:3px solid #434456;
+ 
+   .history-tabs .history-tab-active {
+    border-bottom:3px solid #564343;
     color:#434456
    }
 

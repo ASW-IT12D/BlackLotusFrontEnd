@@ -8,7 +8,7 @@ import Act_Issue from './activityIssue';
 function Act_Comments() {
 
 const [show, setShow] = useState(true)
-const [cssComments, setCssComm] = useState("history-tab active")
+const [cssComments, setCssComm] = useState("history-tab-active")
 const [cssAct, setCssAct] = useState("history-tab")
 
 const { id } = useParams();
@@ -17,7 +17,7 @@ const handleTextClickComments = () => {
 
     setShow(true);
     setCssAct("history-tab")
-    setCssComm("history-tab active")
+    setCssComm("history-tab-active")
 
 }; 
 
@@ -25,7 +25,7 @@ const handleTextClickActi = () => {
 
     setShow(false);
     setCssComm("history-tab")
-    setCssAct("history-tab active")
+    setCssAct("history-tab-active")
 
 };      
 

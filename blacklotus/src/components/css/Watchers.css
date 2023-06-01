@@ -120,4 +120,18 @@
 
   .watcher-Profiles{
     margin-top: 15px;
+    cursor:pointer;
+  }
+
+  .watcher-Profiles-label{
+    margin-top: 15px;
+    cursor:pointer;
+    color:#52b3d0
+  }
+
+  .watcher-ProfilesSelected
+  {
+    margin-top: 15px;
+    cursor:pointer;
+    color: #000;
   }

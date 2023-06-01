@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { changeUser, getToken,getCookie } from '../Token';
+import { changeUser, getToken,getCookie, getUsername } from '../Token';
 import './css/Watchers.css';
 import { useParams } from 'react-router-dom';
 
-function Asign() {
-  const [watcherName, setWatcherName] = useState('');
+function Watchers() {
+  const [watcherName, setWatcherName] = useState("");
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [beePick, setBee] = useState(false);
+  const [adminPick, setAdmin] = useState(false);
+  const [lluisPick, setLluis] = useState(false);
  
   const { id } = useParams();
   
@@ -37,60 +40,96 @@ function Asign() {
       });
       realCloseLightbox();
   };
-  
 
-  changeUser()
+
+  const handleButtonAddMe = () => {
+    setWatcherName(getUsername)
+    const data = {
+      watchers: getUsername()
+    };
+
+        fetch('http://127.0.0.1:8000/issue/' + id + '/', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('X_CSRFTOKEN'),
+            'Authorization': 'Token ' + getToken()
+          },
+          body: JSON.stringify(data),
+        })
+  };
 
   const handleButtonClick = () => {
     const data = {
-        asignTo: watcherName
-    };
-    
-      fetch('http://127.0.0.1:8000/issue/' + id + '/', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('X_CSRFTOKEN'),
-          'Authorization': 'Token ' + getToken()
-        },
-        body: JSON.stringify(data),
-      });
-      
-     
-  
-   openLightbox();
-    
-  };
-
-  const handleButtonAddMe = () => {
-    setWatcherName('PouEmo');
-    const data = {
       watchers: watcherName
     };
-    
-      fetch('http://127.0.0.1:8000/issue/' + id + '/', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('X_CSRFTOKEN'),
-          'Authorization': 'Token ' + getToken()
-        },
-        body: JSON.stringify(data),
-      });
-      
-     
+    if (watcherName != "")
+    {
+        fetch('http://127.0.0.1:8000/issue/' + id + '/', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('X_CSRFTOKEN'),
+            'Authorization': 'Token ' + getToken()
+          },
+          body: JSON.stringify(data),
+        });
+    }
   
    realCloseLightbox();
     
   };
 
+  const handleButtonPickBee = () => {
+        if (beePick)
+        {
+          setBee(false);
+            setWatcherName("");
+        }
+        else{
+          setWatcherName("bee");
+          setBee(true);
+          setAdmin(false);
+          setLluis(false);
+        }
+    };
+
+    const handleButtonPickAdmin = () => {
+        if (adminPick)
+        {
+            setAdmin(false);
+            setWatcherName("");
+        }
+        else{
+          setWatcherName("admin");
+          setAdmin(true);
+          setBee(false);
+          setLluis(false);
+        }
+    };
+
+    const handleButtonPickLluis = () => {
+      
+      if (lluisPick)
+      {
+          setLluis(false);
+          setWatcherName("");
+      }
+      else{
+        setWatcherName("llpfdc");
+        setLluis(true);
+        setAdmin(false);
+        setBee(false);
+      }
+   
+    };
+
   return (
     <div>
-    <label>Assigned</label>
+    <label>Watchers</label>
     <div>
         {watcherName && (
         <div className='watcher-Profiles'>
-            <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Icono" className="iconoBoton" />
             <a>
                 {watcherName}
             </a>
@@ -100,12 +139,12 @@ function Asign() {
     <br></br>
     <div>
         <button className='boton-Watchers'
-                onClick={()=> {handleButtonClick();}}>
-                    + Add Asigned
+                onClick={()=> {openLightbox();}}>
+                    + Add Watcher
         </button>
         <button className='boton-WatchersMe'
                 onClick={()=> {handleButtonAddMe();}}>
-            Asign to me
+            Assign to me
         </button>
         {lightboxOpen && (
         <div className="lightboxDeadline">
@@ -116,25 +155,22 @@ function Asign() {
             >
             </button>
             <br></br>
-            <h2>Asign to</h2>
+            <h2>+ Add Assigned</h2>
             <br></br>
-            <div className='boton-Profiles'>
-                <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Icono" className="iconoBoton" />
-                <button>
-                    User 1
-                </button>
+            <div className='watcher-Profiles' onClick={handleButtonPickBee}>
+                <label className={beePick ? 'watcher-Profiles-label' : 'watcher-ProfilesSelected'} onClick={handleButtonPickBee}>
+                    bee
+                </label>
             </div>
-            <div className='boton-Profiles'>
-                <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Icono" className="iconoBoton" />
-                <button>
-                    User 2
-                </button>
+            <div className='watcher-Profiles' onClick={handleButtonPickLluis}>
+                <label className={lluisPick ? 'watcher-Profiles-label' : 'watcher-ProfilesSelected'} onClick={handleButtonPickBee}>
+                  llpfdc
+                </label>
             </div>
-            <div className='boton-Profiles'>
-                <img src="https://www.cripto-valuta.net/wp-content/uploads/2022/11/shiba-inu.jpg" alt="Icono" className="iconoBoton" />
-                <button>
-                    User 3
-                </button>
+            <div className='watcher-Profiles' onClick={handleButtonPickAdmin}>
+                <label className={adminPick ? 'watcher-Profiles-label' : 'watcher-ProfilesSelected'} onClick={handleButtonPickBee}>
+                    admin
+                </label>
             </div>
             <br></br>
             <button onClick={closeLightbox} className="savebuttonDeadline">
@@ -147,4 +183,4 @@ function Asign() {
   );
 }
 
-export default Asign;
+export default Watchers;

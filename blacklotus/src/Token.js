@@ -36,21 +36,21 @@ export function changeUser(id)
     
     switch(id) {
         case 0:
-            localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");//bee lluis123
+            localStorage.setItem('token', "04344c746a62a5b214d71c1e696d3617d600d0c8");//bee lluis123
             
             break;
         case 1:
-            localStorage.setItem('token', "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82");//llpfdc lluis123
+            localStorage.setItem('token', "04344c746a62a5b214d71c1e696d3617d600d0c8");//llpfdc lluis123
             
             break;
         
         case 2: 
-            localStorage.setItem('token', "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a");//admin admin
+            localStorage.setItem('token', "04344c746a62a5b214d71c1e696d3617d600d0c8");//admin admin
             
             break;
         
         default:
-            localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");
+            localStorage.setItem('token', "04344c746a62a5b214d71c1e696d3617d600d0c8");
             
             break;
     }
@@ -59,22 +59,22 @@ export function changeUser(id)
 export function getUsername() {
     
     switch(localStorage.getItem('token')) {
-        case "3ed3a7e39a081e5cc7768911358781896c4aec29":
-            return "bee";
-        case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
-            return "llpfdc"
-        case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
-            return "admin";
+        case "04344c746a62a5b214d71c1e696d3617d600d0c8":
+            return "MarcChavez";
+        case "04344c746a62a5b214d71c1e696d3617d600d0c8":
+            return "MarcChavez"
+        case "04344c746a62a5b214d71c1e696d3617d600d0c8": 
+            return "MarcChavez";
     }
 }
 
 export function getIdUser() {
     switch(localStorage.getItem('token')) {
-        case "3ed3a7e39a081e5cc7768911358781896c4aec29":
+        case "04344c746a62a5b214d71c1e696d3617d600d0c8":
             return 0;
-        case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
+        case "04344c746a62a5b214d71c1e696d3617d600d0c8":
             return 1;        
-        case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
+        case "04344c746a62a5b214d71c1e696d3617d600d0c8": 
             return 2;
     }
 }
@@ -82,10 +82,10 @@ export function getIdUser() {
 export function getUsernameId(id){
     switch (id) {
         case 1:
-            return "admin"
+            return "MarcChavez"
         case 2:
-            return "bee"
+            return "MarcChavez"
         case 3:
-            return "llpfdc"
+            return "MarcChavez"
     }
 }
