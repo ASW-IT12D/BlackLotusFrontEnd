@@ -22,15 +22,70 @@ export function getCookie(name) {
 
 export function getToken()
 {
-    return localStorage.getItem('token');
-
+    if(localStorage.getItem('token')){
+        return localStorage.getItem('token');
+    }
+    else {
+        changeUser(0)
+        return localStorage.getItem('token')
+    }
 }
 
-export function changeUser(name)
+export function changeUser(id)
 {
-    if (name === 0) localStorage.setItem('token', "21bcd501e8c7eed561c6990c8e6fc2f6af84a0dd");
+    
+    switch(id) {
+        case 0:
+            localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");//bee lluis123
+            
+            break;
+        case 1:
+            localStorage.setItem('token', "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82");//llpfdc lluis123
+            
+            break;
+        
+        case 2: 
+            localStorage.setItem('token', "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a");//admin admin
+            
+            break;
+        
+        default:
+            localStorage.setItem('token', "3ed3a7e39a081e5cc7768911358781896c4aec29");
+            
+            break;
+    }
+}
 
-    if (name === 1) localStorage.setItem('token', "user2");
+export function getUsername() {
+    
+    switch(localStorage.getItem('token')) {
+        case "3ed3a7e39a081e5cc7768911358781896c4aec29":
+            return "bee";
+        case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
+            return "llpfdc"
+        case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
+            return "admin";
+    }
+}
 
-    if (name === 2) localStorage.setItem('token', "user3");
+export function getIdUser() {
+    switch(localStorage.getItem('token')) {
+        case "3ed3a7e39a081e5cc7768911358781896c4aec29":
+            return 0;
+        case "cbf8d5911ab8eb6579f0cfa91714174fb1c4dc82":
+            return 1;        
+        case "e0dd4257259a99ecfab0c8e40d60b0307a2d7b8a": 
+            return 2;
+    }
+}
+
+export function getUsernameId(id){
+    switch (id) {
+        case 1:
+            return "admin"
+        case 2:
+            return "bee"
+        case 3:
+            return "llpfdc"
+    }
 }
