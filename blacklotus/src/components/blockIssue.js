@@ -24,7 +24,7 @@ function Block() {
       }
     })
       .then(resp => resp.json())
-      .then(data => setIssue(data)).then(data => setBlock(data.blocked))
+      .then(data => setIssue(data)).then(issue => console.log(issue.subject))
       .catch(error => console.error(error));
   }, []);
 
@@ -41,7 +41,7 @@ function Block() {
         blocked: true
       };
   
-      fetch('http://127.0.0.1:8000/issue/' + id + '/', {
+      fetch("http://127.0.0.1:8000/issue/"+id+"/", {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,9 @@ function Block() {
           'Authorization': 'Token ' + getToken()
         },
         body: JSON.stringify(data),
-      });
+    })
+      .then(resp => resp.json()).then(data => setBlock(data.blocked))
+      .catch(error => console.error(error));
     }
   };
   
@@ -63,8 +65,8 @@ function Block() {
       const data = {
         blocked: false
       };
-    
-      const response = await fetch('http://127.0.0.1:8000/issue/' + id + '/', {
+
+      fetch("http://127.0.0.1:8000/issue/"+id+"/", {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -72,13 +74,9 @@ function Block() {
           'Authorization': 'Token ' + getToken()
         },
         body: JSON.stringify(data),
-        
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setBlock(data.blocked)
-      }
+    })
+      .then(resp => resp.json()).then(data => setBlock(data.blocked))
+      .catch(error => console.error(error));
       
     } else {
       openLightbox();
